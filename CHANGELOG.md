@@ -1,3 +1,7 @@
+## [0.1.2-alpha] - 2021-04-11
+
+* Optimization documentation release, change example path, edit description.
+
 ## [0.1.1-alpha] - 2021-04-11
 
 * Optimization documentation release.

@@ -79,7 +79,7 @@ BarGraph(
 
 | ![Image](https://github.com/rickypid/flutter_bargraph/blob/master/doc/.media/example_space_around.png?raw=true) | ![Image](https://github.com/rickypid/flutter_bargraph/blob/master/doc/.media/example_space_around_horizontal.png?raw=true) | ![Image](https://github.com/rickypid/flutter_bargraph/blob/master/doc/.media/example_space_between.png?raw=true) |
 | :------------: | :------------: | :------------: |
-| **Vertical space around** | **Horizontal space around** | **Vertical space between space around** |
+| **Vertical space around** | **Horizontal space around** | **Vertical space between** |
 
 
 
