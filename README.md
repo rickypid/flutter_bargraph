@@ -15,7 +15,7 @@ Flutter Single value bar graph viewer with indicators
 * Customizable colors and text style 
 * Vertical orientation, left to right and right to left direction
 * Horizontal orientation, top to bottom and bottom to top direction
-* Customizable divisions count
+* Number of divisions customizable
 
 ## Usage
 
@@ -49,6 +49,12 @@ BarGraph(
 
 ### Advanced options
 
+#### Style
+
+* `orientation` is the scale orientation, default vertical from bottom.
+* `indicatorStyle` is the scale indicators style, default BOTH, left and right.
+* `indicatorSpacing` is the scale indicators spacing, default SPACE_AROUND, alternative SPACE_BETWEEN.
+
 #### Colors
 
 * `backgroundColor` is the background color og BarGraph.
@@ -59,14 +65,14 @@ BarGraph(
 
 * `textStyle` is the TextStyle of indicators text.
 * `textAlign` is the Alignment of indicators text.
-* `fractionDigits` is the number of digit visible.
+* `fractionDigits` is the number of fraction digits visible.
 * `divisions` is the number of divisions of scale.
 * `textFlex` is the percentage of portion used for text, remaining space is used for indicators.
 
 
 #### Animation
 
-* `animationDuration` in milliseconds, is time to animate change of actual value.
+* `animationDuration` in milliseconds, it's duration time of animation when actual value changed.
 
 
 #### Example
