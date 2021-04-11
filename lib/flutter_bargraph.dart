@@ -21,7 +21,7 @@ enum BarGraphIndicatorSpacing{
 class BarGraph extends StatefulWidget {
   final Color backgroundColor;
   final Color barColor;
-  final Color indicatorColor;
+  final Color indicatorsColor;
   final TextStyle textStyle;
   final Alignment textAlign;
   final double value;
@@ -42,7 +42,7 @@ class BarGraph extends StatefulWidget {
         /// Select a color
         this.backgroundColor,
         this.barColor,
-        this.indicatorColor,
+        this.indicatorsColor,
         this.textStyle,
         this.textAlign= Alignment.center,
         this.fractionDigits = 2,
@@ -162,7 +162,7 @@ class _BarGraphState extends State<BarGraph> with TickerProviderStateMixin {
   List<Widget> _getBar(){
     List<Widget> widgets = List.generate(widget.divisions + 1, (index) {
       return Container(
-        color: (widget.indicatorColor!=null?widget.indicatorColor:Theme.of(context).buttonColor),
+        color: (widget.indicatorsColor!=null?widget.indicatorsColor:Theme.of(context).buttonColor),
         width: (widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_LEFT || widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT)?3:null,
         height: (widget.orientation == BarGraphOrientation.VERTICAL_FROM_TOP || widget.orientation == BarGraphOrientation.VERTICAL_FROM_BOTTOM)?3:null,
       );

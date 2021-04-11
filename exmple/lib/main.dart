@@ -46,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
                 children: [
-                  /*
                   Expanded(
                       child: BarGraph(
                         min: 0,
@@ -57,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         orientation: BarGraphOrientation.HORIZONTAL_FROM_LEFT,
                       )
                   ),
-                   */
                   Expanded(
                       child: BarGraph(
                         min: 0,
@@ -65,10 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         divisions: 5,
                         value: _currentSliderValue,
                         barColor: Theme.of(context).accentColor,
-                        orientation: BarGraphOrientation.HORIZONTAL_FROM_LEFT,
+                        orientation: BarGraphOrientation.VERTICAL_FROM_BOTTOM,
+                        indicatorSpacing: BarGraphIndicatorSpacing.SPACE_BETWEEN,
                       )
-                    ),
-                  Expanded(child: BarGraph())
+                  ),
                 ],
               ),
             ),
