@@ -3,7 +3,7 @@
 [![Pub Package](https://img.shields.io/pub/v/flutter_bargraph.svg?style=flat-square)](https://pub.dartlang.org/packages/flutter_bargraph) [![Package Issue](https://img.shields.io/github/issues/rickypid/flutter_bargraph)](https://github.com/rickypid/flutter_bargraph/issues)
 ![Package License](https://img.shields.io/github/license/rickypid/flutter_bargraph)
 
-Flutter Single value bar graph viewer with indicators
+Bar Graph Indicator for Flutter. It graphically displays the current value on a bar graph and manages its animation when the value changes. you can customize the orientation and direction of the bar.
 
 | ![Image](https://github.com/rickypid/flutter_bargraph/blob/7f5bde4ebc40899079800127c815e01beac3abcb/doc/.media/example.gif?raw=true) |
 | :------------: |
@@ -52,7 +52,7 @@ BarGraph(
 #### Style
 
 * `orientation` is the scale orientation, default vertical from bottom.
-* `indicatorStyle` is the scale indicators style, default BOTH, left and right.
+* `indicatorStyle` is the scale indicators style, default BOTH, left and right visible.
 * `indicatorSpacing` is the scale indicators spacing, default SPACE_AROUND, alternative SPACE_BETWEEN.
 
 #### Colors
