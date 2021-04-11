@@ -10,8 +10,8 @@ enum BarGraphOrientation{
 }
 enum BarGraphIndicatorStyle{
   BOTH,
-  ONLY_LEFT,
-  ONLY_RIGHT,
+  ONLY_LEFT_OR_TOP,
+  ONLY_RIGHT_OR_BOTTOM,
   NOTHING
 }
 enum BarGraphIndicatorSpacing{
@@ -46,12 +46,12 @@ class BarGraph extends StatefulWidget {
         this.textStyle,
         this.textAlign= Alignment.center,
         this.fractionDigits = 2,
-        this.value = 5,
+        this.value = 15,
         this.divisions = 10,
-        this.min = 2,
-        this.max = 120,
+        this.min = 0,
+        this.max = 100,
         this.animationDuration = 200,
-        this.orientation = BarGraphOrientation.HORIZONTAL_FROM_LEFT,
+        this.orientation = BarGraphOrientation.VERTICAL_FROM_BOTTOM,
         this.textFlex = 20,
         this.indicatorStyle = BarGraphIndicatorStyle.BOTH,
         this.indicatorSpacing = BarGraphIndicatorSpacing.SPACE_AROUND
@@ -59,6 +59,7 @@ class BarGraph extends StatefulWidget {
         assert(value >= min, 'The value is less than the specified minimum value'),
         assert(value <= max, 'The value is greater than the specified maximum value'),
         assert(divisions > 0, 'Divisions must be greater than 0'),
+        assert(textFlex > 0 && textFlex < 100),
         super(key: key);
   @override
   _BarGraphState createState() => _BarGraphState();
@@ -172,14 +173,14 @@ class _BarGraphState extends State<BarGraph> with TickerProviderStateMixin {
   }
   Widget _getLabelAndBar(){
     List<Widget> children = [];
-    if(widget.indicatorStyle==BarGraphIndicatorStyle.BOTH || widget.indicatorStyle==BarGraphIndicatorStyle.ONLY_LEFT)
+    if(widget.indicatorStyle==BarGraphIndicatorStyle.BOTH || widget.indicatorStyle==BarGraphIndicatorStyle.ONLY_LEFT_OR_TOP)
       children.add(_getIndicators(_SideEnum.LEFT));
 
     children.add(Expanded(
       flex: widget.textFlex,
       child: _getVerticalHorizontalTextWidget(_getLabels()),
     ));
-    if(widget.indicatorStyle==BarGraphIndicatorStyle.BOTH || widget.indicatorStyle==BarGraphIndicatorStyle.ONLY_RIGHT)
+    if(widget.indicatorStyle==BarGraphIndicatorStyle.BOTH || widget.indicatorStyle==BarGraphIndicatorStyle.ONLY_RIGHT_OR_BOTTOM)
       children.add(_getIndicators(_SideEnum.RIGHT));
     return _getVerticalHorizontalPrincipalWidget(children);
   }

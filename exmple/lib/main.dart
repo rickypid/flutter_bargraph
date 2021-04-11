@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         orientation: BarGraphOrientation.HORIZONTAL_FROM_LEFT,
                       )
                     ),
+                  Expanded(child: BarGraph())
                 ],
               ),
             ),

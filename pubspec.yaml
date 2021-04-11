@@ -1,8 +1,6 @@
 name: flutter_bargraph
 description: Flutter single value bar graph viewer with indicators
 version: 0.1.0-alpha
-author: Riccardo Cucia
-publish_to: flutter_bargraph
 homepage: https://github.com/rickypid/flutter_bargraph
 repository: https://github.com/rickypid/flutter_bargraph
 issue_tracker: https://github.com/rickypid/flutter_bargraph/issues
