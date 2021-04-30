@@ -19,7 +19,7 @@ Bar Graph Indicator for Flutter. It graphically displays the current value on a 
 
 ## Usage
 
-Make sure to check out [examples](https://github.com/rickypid/flutter_bargraph/tree/master/exmple).
+Make sure to check out [examples](https://github.com/rickypid/flutter_bargraph/tree/master/example).
 
 ### Installation
 
@@ -32,7 +32,7 @@ dependencies:
 
 ### Basic setup
 
-*The complete example is available [here](https://github.com/rickypid/flutter_bargraph/blob/master/exmple/lib/main.dart).*
+*The complete example is available [here](https://github.com/rickypid/flutter_bargraph/blob/master/example/lib/main.dart).*
 
 **BarGraph** requires you to provide `min`, `max` and `value`:
 * `min` is the min value of BarGraph scale.
@@ -75,7 +75,7 @@ BarGraph(
 * `animationDuration` in milliseconds, it's duration time of animation when actual value changed.
 
 
-#### Example
+### Example
 
 | ![Image](https://github.com/rickypid/flutter_bargraph/blob/master/doc/.media/example_space_around.png?raw=true) | ![Image](https://github.com/rickypid/flutter_bargraph/blob/master/doc/.media/example_space_around_horizontal.png?raw=true) | ![Image](https://github.com/rickypid/flutter_bargraph/blob/master/doc/.media/example_space_between.png?raw=true) |
 | :------------: | :------------: | :------------: |
