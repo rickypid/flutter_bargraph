@@ -1,6 +1,11 @@
 # flutter_bargraph
 
-[![Pub Package](https://img.shields.io/pub/v/flutter_bargraph.svg?style=flat-square)](https://pub.dartlang.org/packages/flutter_bargraph) [![Package Issue](https://img.shields.io/github/issues/rickypid/flutter_bargraph)](https://github.com/rickypid/flutter_bargraph/issues)
+[![Pub Package](https://img.shields.io/pub/v/flutter_bargraph.svg?style=flat-square)](https://pub.dartlang.org/packages/flutter_bargraph)
+[![likes](https://badges.bar/flutter_bargraph/likes)](https://pub.dev/packages/flutter_bargraph/score)
+[![popularity](https://badges.bar/flutter_bargraph/popularity)](https://pub.dev/packages/flutter_bargraph/score)
+[![pub points](https://badges.bar/flutter_bargraph/pub%20points)](https://pub.dev/packages/flutter_bargraph/score)
+
+[![Package Issue](https://img.shields.io/github/issues/rickypid/flutter_bargraph)](https://github.com/rickypid/flutter_bargraph/issues)
 ![Package License](https://img.shields.io/github/license/rickypid/flutter_bargraph)
 
 Bar Graph Indicator for Flutter. It graphically displays the current value on a bar graph and manages its animation when the value changes. you can customize the orientation and direction of the bar.
