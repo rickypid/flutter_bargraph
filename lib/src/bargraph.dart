@@ -1,44 +1,45 @@
 library flutter_bargraph;
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 /// [BarGraphOrientation] Enum
 enum BarGraphOrientation {
   /// Bar orientation Vertical top to bottom
-  VERTICAL_FROM_TOP,
+  verticalFromTop,
 
   /// Bar orientation Vertical bottom to top
-  VERTICAL_FROM_BOTTOM,
+  verticalFromBottom,
 
   /// Bar orientation Horizontal left to right
-  HORIZONTAL_FROM_LEFT,
+  horizontalFromLeft,
 
   /// Bar orientation Horizontal right to left
-  HORIZONTAL_FROM_RIGHT,
+  horizzontalFromRight,
 }
 
 /// [BarGraphIndicatorStyle] Enum
 enum BarGraphIndicatorStyle {
   /// View all indicator
-  BOTH,
+  both,
 
   /// View only left/Top indicator
-  ONLY_LEFT_OR_TOP,
+  onlyLeftOrTop,
 
   /// View only Right/Bottom indicator
-  ONLY_RIGHT_OR_BOTTOM,
+  onlyRightOrBottom,
 
   /// Hidden all indicator
-  NOTHING
+  nothing
 }
 
 /// [BarGraphIndicatorSpacing] Enum
 enum BarGraphIndicatorSpacing {
   /// Is indicator spacing type
-  SPACE_AROUND,
+  spaceAround,
 
   /// Is indicator spacing type
-  SPACE_BETWEEN,
+  spaceBetween,
 }
 
 class BarGraph extends StatefulWidget {
@@ -135,7 +136,7 @@ class BarGraph extends StatefulWidget {
 
   /// Creates an [BarGraph]
   /// Material design's
-  BarGraph(
+  const BarGraph(
       {Key? key,
       this.backgroundColor,
       this.barColor = Colors.blue,
@@ -148,10 +149,10 @@ class BarGraph extends StatefulWidget {
       this.min = 0,
       this.max = 100,
       this.animationDuration = 200,
-      this.orientation = BarGraphOrientation.VERTICAL_FROM_BOTTOM,
+      this.orientation = BarGraphOrientation.verticalFromBottom,
       this.textFlex = 20,
-      this.indicatorStyle = BarGraphIndicatorStyle.BOTH,
-      this.indicatorSpacing = BarGraphIndicatorSpacing.SPACE_AROUND})
+      this.indicatorStyle = BarGraphIndicatorStyle.both,
+      this.indicatorSpacing = BarGraphIndicatorSpacing.spaceAround})
       : assert(
             value >= min, 'The value is less than the specified minimum value'),
         assert(value <= max,
@@ -161,10 +162,10 @@ class BarGraph extends StatefulWidget {
         super(key: key);
 
   @override
-  _BarGraphState createState() => _BarGraphState();
+  State<BarGraph> createState() => _BarGraphState();
 }
 
-enum _SideEnum { LEFT, RIGHT }
+enum _SideEnum { left, right }
 
 class _BarGraphState extends State<BarGraph> with TickerProviderStateMixin {
   late Animation _animation;
@@ -203,87 +204,93 @@ class _BarGraphState extends State<BarGraph> with TickerProviderStateMixin {
     double progress =
         (_animation.value - widget.min) / (widget.max - widget.min);
     double offset = 0;
-    if (widget.indicatorSpacing == BarGraphIndicatorSpacing.SPACE_AROUND)
+    if (widget.indicatorSpacing == BarGraphIndicatorSpacing.spaceAround) {
       offset = ((1 / (widget.divisions + 1)) / 2);
+    }
     return offset + (progress * (1 - (offset * 2)));
   }
 
   Widget _getVerticalHorizontalPrincipalWidget(List<Widget> children) {
-    if (widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_LEFT ||
-        widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT)
+    if (widget.orientation == BarGraphOrientation.horizontalFromLeft ||
+        widget.orientation == BarGraphOrientation.horizzontalFromRight) {
       return Column(
         children: children,
       );
-    else
+    } else {
       return Row(
         children: children,
       );
+    }
   }
 
   Widget _getVerticalHorizontalSubWidget(List<Widget> children) {
-    if (widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_LEFT ||
-        widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT)
+    if (widget.orientation == BarGraphOrientation.horizontalFromLeft ||
+        widget.orientation == BarGraphOrientation.horizzontalFromRight) {
       return Row(
-        children: children,
         mainAxisAlignment:
-            (widget.indicatorSpacing == BarGraphIndicatorSpacing.SPACE_AROUND)
+            (widget.indicatorSpacing == BarGraphIndicatorSpacing.spaceAround)
                 ? MainAxisAlignment.spaceAround
                 : MainAxisAlignment.spaceBetween,
+        children: children,
       );
-    else
+    } else {
       return Column(
-        children: children,
         mainAxisAlignment:
-            (widget.indicatorSpacing == BarGraphIndicatorSpacing.SPACE_AROUND)
+            (widget.indicatorSpacing == BarGraphIndicatorSpacing.spaceAround)
                 ? MainAxisAlignment.spaceAround
                 : MainAxisAlignment.spaceBetween,
+        children: children,
       );
+    }
   }
 
   Widget _getVerticalHorizontalTextWidget(List<Widget> children) {
-    if (widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_LEFT ||
-        widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT)
+    if (widget.orientation == BarGraphOrientation.horizontalFromLeft ||
+        widget.orientation == BarGraphOrientation.horizzontalFromRight) {
       return Row(
-        children: children,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: children,
       );
-    else
+    } else {
       return Column(
-        children: children,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: children,
       );
+    }
   }
 
   List<Widget> _getLabels() {
     List<Widget> widgets = List.generate(widget.divisions + 1, (index) {
       Widget text;
-      if (widget.indicatorSpacing == BarGraphIndicatorSpacing.SPACE_AROUND ||
-          (index > 0 && index < widget.divisions))
+      if (widget.indicatorSpacing == BarGraphIndicatorSpacing.spaceAround ||
+          (index > 0 && index < widget.divisions)) {
         text = Text(
             (widget.min +
                     (index * ((widget.max - widget.min) / widget.divisions)))
                 .toStringAsFixed(widget.fractionDigits),
             style: widget.textStyle);
-      else
-        text = Text('');
+      } else {
+        text = const Text('');
+      }
 
       return Expanded(
           flex: (widget.indicatorSpacing ==
-                      BarGraphIndicatorSpacing.SPACE_AROUND ||
+                      BarGraphIndicatorSpacing.spaceAround ||
                   (index > 0 && index < widget.divisions))
               ? 2
               : 1,
           child: Container(alignment: widget.textAlign, child: text));
     });
-    if (widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT ||
-        widget.orientation == BarGraphOrientation.VERTICAL_FROM_BOTTOM)
+    if (widget.orientation == BarGraphOrientation.horizzontalFromRight ||
+        widget.orientation == BarGraphOrientation.verticalFromBottom) {
       widgets = widgets.reversed.toList();
+    }
     return widgets;
   }
 
   Widget _getIndicators(_SideEnum side) {
     return Expanded(
-        flex: (widget.indicatorStyle == BarGraphIndicatorStyle.BOTH)
+        flex: (widget.indicatorStyle == BarGraphIndicatorStyle.both)
             ? ((100 - widget.textFlex) ~/ 2)
             : (100 - widget.textFlex),
         child: _getVerticalHorizontalSubWidget(_getBar()));
@@ -294,55 +301,59 @@ class _BarGraphState extends State<BarGraph> with TickerProviderStateMixin {
       return Container(
         color: widget.indicatorsColor,
         width: (widget.orientation ==
-                    BarGraphOrientation.HORIZONTAL_FROM_LEFT ||
-                widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT)
+                    BarGraphOrientation.horizontalFromLeft ||
+                widget.orientation == BarGraphOrientation.horizzontalFromRight)
             ? 3
             : null,
-        height: (widget.orientation == BarGraphOrientation.VERTICAL_FROM_TOP ||
-                widget.orientation == BarGraphOrientation.VERTICAL_FROM_BOTTOM)
+        height: (widget.orientation == BarGraphOrientation.verticalFromTop ||
+                widget.orientation == BarGraphOrientation.verticalFromBottom)
             ? 3
             : null,
       );
     });
-    if (widget.orientation == BarGraphOrientation.HORIZONTAL_FROM_RIGHT ||
-        widget.orientation == BarGraphOrientation.VERTICAL_FROM_BOTTOM)
+    if (widget.orientation == BarGraphOrientation.horizzontalFromRight ||
+        widget.orientation == BarGraphOrientation.verticalFromBottom) {
       widgets = widgets.reversed.toList();
+    }
     return widgets;
   }
 
   Widget _getLabelAndBar() {
     List<Widget> children = [];
-    if (widget.indicatorStyle == BarGraphIndicatorStyle.BOTH ||
-        widget.indicatorStyle == BarGraphIndicatorStyle.ONLY_LEFT_OR_TOP)
-      children.add(_getIndicators(_SideEnum.LEFT));
+    if (widget.indicatorStyle == BarGraphIndicatorStyle.both ||
+        widget.indicatorStyle == BarGraphIndicatorStyle.onlyLeftOrTop) {
+      children.add(_getIndicators(_SideEnum.left));
+    }
 
     children.add(Expanded(
       flex: widget.textFlex,
       child: _getVerticalHorizontalTextWidget(_getLabels()),
     ));
-    if (widget.indicatorStyle == BarGraphIndicatorStyle.BOTH ||
-        widget.indicatorStyle == BarGraphIndicatorStyle.ONLY_RIGHT_OR_BOTTOM)
-      children.add(_getIndicators(_SideEnum.RIGHT));
+    if (widget.indicatorStyle == BarGraphIndicatorStyle.both ||
+        widget.indicatorStyle == BarGraphIndicatorStyle.onlyRightOrBottom) {
+      children.add(_getIndicators(_SideEnum.right));
+    }
     return _getVerticalHorizontalPrincipalWidget(children);
   }
 
   int _getProgressQuarterTurns() {
-    if (widget.orientation == BarGraphOrientation.VERTICAL_FROM_TOP ||
-        widget.orientation == BarGraphOrientation.VERTICAL_FROM_BOTTOM)
+    if (widget.orientation == BarGraphOrientation.verticalFromTop ||
+        widget.orientation == BarGraphOrientation.verticalFromBottom) {
       return 1;
-    else
+    } else {
       return 0;
+    }
   }
 
   Alignment _getProgressAlignment() {
     switch (widget.orientation) {
-      case BarGraphOrientation.HORIZONTAL_FROM_LEFT:
+      case BarGraphOrientation.horizontalFromLeft:
         return Alignment.topLeft;
-      case BarGraphOrientation.HORIZONTAL_FROM_RIGHT:
+      case BarGraphOrientation.horizzontalFromRight:
         return Alignment.topRight;
-      case BarGraphOrientation.VERTICAL_FROM_TOP:
+      case BarGraphOrientation.verticalFromTop:
         return Alignment.topLeft;
-      case BarGraphOrientation.VERTICAL_FROM_BOTTOM:
+      case BarGraphOrientation.verticalFromBottom:
         return Alignment.bottomLeft;
       default:
         return Alignment.topLeft;
