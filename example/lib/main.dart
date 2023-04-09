@@ -1,10 +1,10 @@
 // Flutter imports:
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bargraph/flutter_bargraph.dart';
-
-// ignore: depend_on_referenced_packages
 
 void main() {
   runApp(const MyApp());
