@@ -1,3 +1,8 @@
+## [1.2.0] - 2023-04-09
+#### [@rickypid](https://github.com/rickypid)
+
+* Update SDK version.
+ 
 ## [1.1.1] - 2022-01-25
 #### [@rickypid](https://github.com/rickypid)
 

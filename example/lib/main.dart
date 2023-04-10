@@ -1,11 +1,18 @@
+// Flutter imports:
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bargraph/flutter_bargraph.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -14,17 +21,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'BarGraph'),
+      home: const MyHomePage(title: 'BarGraph'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title = ''}) : super(key: key);
+  const MyHomePage({Key? key, this.title = ''}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -49,24 +56,26 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: [
                   Expanded(
-                      child: BarGraph(
-                    min: 0,
-                    max: 100,
-                    divisions: 4,
-                    value: _currentSliderValue,
-                    barColor: Theme.of(context).accentColor,
-                    orientation: BarGraphOrientation.HORIZONTAL_FROM_LEFT,
-                  )),
+                    child: BarGraph(
+                      min: 0,
+                      max: 100,
+                      divisions: 4,
+                      value: _currentSliderValue,
+                      barColor: Theme.of(context).colorScheme.secondary,
+                      orientation: BarGraphOrientation.horizontalFromLeft,
+                    ),
+                  ),
                   Expanded(
-                      child: BarGraph(
-                    min: 0,
-                    max: 100,
-                    divisions: 5,
-                    value: _currentSliderValue,
-                    barColor: Theme.of(context).accentColor,
-                    orientation: BarGraphOrientation.VERTICAL_FROM_BOTTOM,
-                    indicatorSpacing: BarGraphIndicatorSpacing.SPACE_BETWEEN,
-                  )),
+                    child: BarGraph(
+                      min: 0,
+                      max: 100,
+                      divisions: 5,
+                      value: _currentSliderValue,
+                      barColor: Theme.of(context).colorScheme.secondary,
+                      orientation: BarGraphOrientation.verticalFromBottom,
+                      indicatorSpacing: BarGraphIndicatorSpacing.spaceBetween,
+                    ),
+                  ),
                 ],
               ),
             ),

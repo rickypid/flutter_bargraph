@@ -1,12 +1,12 @@
 name: flutter_bargraph
 description: Bar Graph Indicator for Flutter. It graphically displays the current value on a bar graph with animation when the value changes. orientation/direction of the bar is castumizable.
-version: 1.1.1
+version: 1.2.0
 homepage: https://github.com/rickypid/flutter_bargraph
 repository: https://github.com/rickypid/flutter_bargraph
 issue_tracker: https://github.com/rickypid/flutter_bargraph/issues
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: '>=2.19.6 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -16,5 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.0
+  import_sorter: ^4.6.0
 
 flutter:
