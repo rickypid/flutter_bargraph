@@ -1,3 +1,8 @@
+## [1.2.1] - 2023-04-10
+#### [@rickypid](https://github.com/rickypid)
+
+* Fix code format and README.md.
+
 ## [1.2.0] - 2023-04-09
 #### [@rickypid](https://github.com/rickypid)
 

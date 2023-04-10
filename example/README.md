@@ -32,7 +32,7 @@ Add the following line to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_bargraph: ^1.1.0
+  flutter_bargraph: <last-release>
 ```
 
 ### Basic setup
@@ -46,9 +46,9 @@ dependencies:
 
 ```dart
 BarGraph(
-    min: 0,
-    max: 100.0,
-    value: 65.0,
+min: 0,
+max: 100.0,
+value: 65.0,
 );
 ```
 

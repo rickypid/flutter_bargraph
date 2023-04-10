@@ -300,8 +300,7 @@ class _BarGraphState extends State<BarGraph> with TickerProviderStateMixin {
     List<Widget> widgets = List.generate(widget.divisions + 1, (index) {
       return Container(
         color: widget.indicatorsColor,
-        width: (widget.orientation ==
-                    BarGraphOrientation.horizontalFromLeft ||
+        width: (widget.orientation == BarGraphOrientation.horizontalFromLeft ||
                 widget.orientation == BarGraphOrientation.horizzontalFromRight)
             ? 3
             : null,

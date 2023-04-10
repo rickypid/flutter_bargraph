@@ -32,7 +32,7 @@ Add the following line to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_bargraph: ^1.1.0
+  flutter_bargraph: <last-release>
 ```
 
 ### Basic setup

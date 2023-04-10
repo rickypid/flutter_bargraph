@@ -1,6 +1,6 @@
 name: flutter_bargraph
 description: Bar Graph Indicator for Flutter. It graphically displays the current value on a bar graph with animation when the value changes. orientation/direction of the bar is castumizable.
-version: 1.2.0
+version: 1.2.1
 homepage: https://github.com/rickypid/flutter_bargraph
 repository: https://github.com/rickypid/flutter_bargraph
 issue_tracker: https://github.com/rickypid/flutter_bargraph/issues
